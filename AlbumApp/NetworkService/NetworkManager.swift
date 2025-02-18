@@ -7,54 +7,58 @@
 
 import Foundation
 import Combine
+import Moya
 
 protocol Networkable {
-    func fetchUserFromApi(completed: @escaping (Result<UserModel, ApiErrors>) -> Void)
-    func fetchAlumsFromApi(completed: @escaping (Result<[AlbumsModel], ApiErrors>) -> Void)
-    func fetchPhotosFromApi(albumId: Int,completed: @escaping (Result<[PhotosModel], ApiErrors>) -> Void)
+    var provider: MoyaProvider<ApiHandler> { get }
+    func fetchUserFromApi(completion: @escaping (Result<UserModel, ApiErrors>) -> Void)
+    func fetchAlumsFromApi(completion: @escaping (Result<[AlbumsModel], ApiErrors>) -> Void)
+    func fetchPhotosFromApi(albumId: Int,completion: @escaping (Result<[PhotosModel], ApiErrors>) -> Void)
 }
 
 class NetworkManager : Networkable {
-    static private var cancellable:AnyCancellable?
+    var cancellable = Set<AnyCancellable>()
     static public let sharedInstance = NetworkManager()
-    private init() {
-
-    }
-    let userRandomId:Int = Int.random(in: 1...10)
-    
-    func fetchUserFromApi(completed: @escaping (Result<UserModel, ApiErrors>) -> Void) {
-        fetchDataFromApi(type: UserModel.self, urlStr: ApiHandler.Endpoint.getUser(id: userRandomId).url ,completed: completed)
-    }
-    
-    func fetchAlumsFromApi(completed: @escaping (Result<[AlbumsModel], ApiErrors>) -> Void) {
-        fetchDataFromApi(type: [AlbumsModel].self, urlStr: ApiHandler.Endpoint.getAlbums(userId: userRandomId).url ,completed: completed)
+    let userRandomId: Int = Int.random(in: 1...10)
+    private init() {}
+    var provider = MoyaProvider<ApiHandler>()
+    //(completion: @escaping (Result<UserModel, ApiErrors>) -> Void)
+    func fetchUserFromApi(completion: @escaping (Result<UserModel, ApiErrors>) -> Void) {
+      fetchDataFromApi(target: .getUser(id: userRandomId), completion: completion)
     }
     
-    func fetchPhotosFromApi(albumId: Int,completed: @escaping (Result<[PhotosModel], ApiErrors>) -> Void) {
-        fetchDataFromApi(type: PhotosModel.self, urlStr: ApiHandler.Endpoint.getPhotos(albumId: albumId).url ,completed: completed)
+    func fetchAlumsFromApi(completion: @escaping (Result<[AlbumsModel], ApiErrors>) -> Void) {
+         fetchDataFromApi(target: .getAlbum(userId: userRandomId), completion: completion)
+    }
+    
+    func fetchPhotosFromApi(albumId: Int,completion: @escaping (Result<[PhotosModel], ApiErrors>) -> Void) {
+        fetchDataFromApi(target: .getPhotos(albumId: albumId), completion: completion)
     }
 }
 
 extension NetworkManager {
-    func fetchDataFromApi<T : Decodable>(type: T.Type, urlStr: String, completed: @escaping (Result<T, ApiErrors>) -> Void) {
-        let url = URL(string: urlStr)
-                guard let newUrl = url else { return }
-                NetworkManager.cancellable = URLSession.shared.dataTaskPublisher(for: newUrl)
-                    .map{$0.data}
-                    .decode(type: type.self, decoder: JSONDecoder())
-                    .mapError { error in
-                        switch error {
-                        case URLError.cannotFindHost:
-                            completed(.failure(.invalidURL))
-                            return ApiErrors.invalidURL
-                        default:
-                            completed(.failure(.unableToComplete))
-                            return ApiErrors.unableToComplete
-                        }
+    func fetchDataFromApi<T: Codable>(
+        target: ApiHandler,
+        completion: @escaping (Result<T, ApiErrors>) -> Void
+    ) {
+        provider.requestPublisher(target)
+            .map { $0.data }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .sink(
+                receiveCompletion: { completionStatus in
+                    switch completionStatus {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print("Error: \(error)")
+                        completion(.failure(.unableToComplete))
                     }
-                    .sink { _ in
-                    } receiveValue: { user in
-                        completed(.success(user))
+                },
+                receiveValue: { decodedData in
+                    completion(.success(decodedData))
                 }
-            }
+            )
+            .store(in: &cancellable)
+    }
 }
+
