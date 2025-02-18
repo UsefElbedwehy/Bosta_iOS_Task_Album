@@ -1,6 +1,18 @@
 <html lang="en">
 <body>
     <h1>Album iOS Application</h1>
+    <h1>How to use:</h1>
+<code>
+git clone git@github.com:UsefElbedwehy/Bosta_iOS_Task_Album.git
+</code>
+    <p>Get into the project folder using cd and then write the proj folder name</p>
+    <code>
+cd [Project file]
+</code>
+    <p>install pods by writing this command in the terminal</p>
+    <code>
+pod install
+</code>
     <h2>Introduction</h2>
   <p>The app is composed of 2 screens, first is the profile screen, it has the user
 name and address pinned at the top and then it lists all of this user’s albums.When you press on any album it navigates to the second screen which is an
