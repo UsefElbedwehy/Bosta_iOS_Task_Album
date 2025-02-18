@@ -12,6 +12,7 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var photosSearchBar: UISearchBar!
     let viewModel = ViewModel()
     var albumId:Int = 1
+    var AlbumTitle:String = ""
     var filetedArray: [PhotosModel] = []
     @IBOutlet weak var photosCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class PhotosViewController: UIViewController {
         viewModel.GetPhotosData(albumId: albumId)
     }
     func navTitle(){
-        self.title = "Destination Page"
+        self.title = AlbumTitle
         self.navigationItem.largeTitleDisplayMode = .always
     }
     func initSearch(){
