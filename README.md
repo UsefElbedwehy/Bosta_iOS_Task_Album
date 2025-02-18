@@ -11,12 +11,12 @@ functionality implemented.</p>
  <h3>First Screen: Profile and Albums</h3>
     <img src="https://drive.google.com/uc?export=view&id=1GJSeue9sUqAxQMGR0Mpfd-9CQDeFWAcB" alt="Google Drive Image" width="600">
 <h3>Second Screen: Grid of photos like instagram with search bar</h3>
-  <img src="https://drive.google.com/file/d/1ItW9pAKk1giJJhMsvKXC0LWdB0lRtmB6/view?usp=sharing" alt="Description" width="600">
-  <img src="https://drive.google.com/file/d/1_sOOSHwN5g0iZ8DdMbxITeWAVrJBfbmI/view?usp=share_link" alt="Description" width="600">
+    <img src="https://drive.google.com/uc?export=view&id=1ItW9pAKk1giJJhMsvKXC0LWdB0lRtmB6" alt="Google Drive Image" width="300">
+      <img src="https://drive.google.com/uc?export=view&id=1_sOOSHwN5g0iZ8DdMbxITeWAVrJBfbmI" alt="Google Drive Image" width="300">
 <h3>Third Screen: ImageViewer where you can zoom in and out and share the image</h3>
-<img src="https://drive.google.com/file/d/1ynZKLHv9H_wPiJC3CAGlLMHtjtdg_wf2/view?usp=sharing" alt="Description">
-  <img src="https://drive.google.com/file/d/13CI_YcdwUPPjr0zjUKvgwcdDZiZG6F-Y/view?usp=sharing" alt="Description">
-  <img src="https://drive.google.com/file/d/1Wi31SoZCk0IhWd_4qE-NXxOktuzt0gMx/view?usp=sharing" alt="Description">
+    <img src="https://drive.google.com/uc?export=view&id=1ynZKLHv9H_wPiJC3CAGlLMHtjtdg_wf2" alt="Google Drive Image" width="300">
+      <img src="https://drive.google.com/uc?export=view&id=13CI_YcdwUPPjr0zjUKvgwcdDZiZG6F-Y" alt="Google Drive Image" width="300">
+    <img src="https://drive.google.com/uc?export=view&id=1Wi31SoZCk0IhWd_4qE-NXxOktuzt0gMx" alt="Google Drive Image" width="300">
   <h2>SoftWare Stack</h2>  
   <ul>
     <li>UIkit</li>
