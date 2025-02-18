@@ -6,20 +6,26 @@ PODS:
     - Moya/Core
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - SDWebImage (5.20.0):
+    - SDWebImage/Core (= 5.20.0)
+  - SDWebImage/Core (5.20.0)
 
 DEPENDENCIES:
   - Moya (~> 15.0)
   - Moya/Combine (~> 15.0)
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
 
-PODFILE CHECKSUM: 2992c5ddfc15026e4ff547bd401e2ab1b37e9394
+PODFILE CHECKSUM: b69e363c28eb7c8a41b7dde1230a5ad887960683
 
 COCOAPODS: 1.16.2

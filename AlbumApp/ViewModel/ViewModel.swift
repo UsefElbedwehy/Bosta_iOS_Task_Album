@@ -33,7 +33,7 @@ class ViewModel {
         NetworkManager.sharedInstance.fetchUserFromApi { result in
             switch result {
             case .success(let user):
-                print("User: \(user.name)")
+//                print("User: \(user.name)")
                 self.userFinalResult = user
             case .failure(let error):
                 print("Error: \(error)")
@@ -44,7 +44,7 @@ class ViewModel {
         NetworkManager.sharedInstance.fetchAlumsFromApi { result in
             switch result {
             case .success(let albums):
-                print("Albums: \(albums)")
+//                print("Albums: \(albums)")
                 self.albumsFinalResult = albums
             case .failure(let error):
                 print("Error  view model: \(error)")
