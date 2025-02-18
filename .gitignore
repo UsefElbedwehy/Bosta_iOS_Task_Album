@@ -1,0 +1,48 @@
+# Xcode
+*.xcworkspace/
+*.xcuserdata/
+*.xccheckout/
+*.moved-aside/
+DerivedData/
+.idea/
+*.hmap
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Cocoapods
+Pods/
+Podfile.lock/
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/.env
+
+# Bundler
+.bundle/
+
+# Xcode Automatic Backup Files
+*.xcscmblueprint
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace/
+
+# Archives
+*.xcarchive
+
+# SwiftPM Xcode project
+Package.resolved
+
+# User-specific settings
+*.swp
+*.swo
+*.DS_Store
+*.log
