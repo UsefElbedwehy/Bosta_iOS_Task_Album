@@ -15,10 +15,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     
+    let viewModel = ViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindUser()
+        bindAlbums()
         
+    }
+    func bindUser(){
+        viewModel.bindUserToViewController = { () in
+            
+        }
+    }
+    func bindAlbums(){
+        viewModel.bindAlbumsToViewController = { () in
+            
+        }
     }
 
 }
