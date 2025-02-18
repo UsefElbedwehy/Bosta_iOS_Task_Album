@@ -1,18 +1,22 @@
 <html lang="en">
 <body>
     <h1>Album iOS Application</h1>
-    <h1>How to use:</h1>
-<code>
-git clone git@github.com:UsefElbedwehy/Bosta_iOS_Task_Album.git
-</code>
-    <p>Get into the project folder using cd and then write the proj folder name</p>
-    <code>
-cd [Project file]
-</code>
-    <p>install pods by writing this command in the terminal</p>
-    <code>
-pod install
-</code>
+ <h1>How to Use:</h1>
+
+<p>Follow the steps below to clone and set up the project:</p>
+
+<h2>1. Clone the repository:</h2>
+<code>git clone git@github.com:UsefElbedwehy/Bosta_iOS_Task_Album.git</code>
+
+<h2>2. Navigate to the project folder:</h2>
+<p>Use the <code>cd</code> command to change into the project directory:</p>
+<code>cd [Project folder]</code>
+
+<h2>3. Install dependencies:</h2>
+<p>Run the following command in the terminal to install the necessary CocoaPods:</p>
+<code>pod install</code>
+
+<p>Once the pods are installed, open the .xcworkspace file to start working on the project.</p>
     <h2>Introduction</h2>
   <p>The app is composed of 2 screens, first is the profile screen, it has the user
 name and address pinned at the top and then it lists all of this user’s albums.When you press on any album it navigates to the second screen which is an
