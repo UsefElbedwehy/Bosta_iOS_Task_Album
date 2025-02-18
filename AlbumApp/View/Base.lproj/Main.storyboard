@@ -143,6 +143,30 @@
             </objects>
             <point key="canvasLocation" x="1788.5496183206105" y="3.5211267605633805"/>
         </scene>
+        <!--Img Zoom View Controller-->
+        <scene sceneID="cQp-ZO-fR5">
+            <objects>
+                <viewController storyboardIdentifier="imageViewerVC" id="X1H-jN-vMW" customClass="imgZoomViewController" customModule="AlbumApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QHf-vF-5co">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQX-Gp-xP3">
+                                <rect key="frame" x="0.0" y="184" width="393" height="484"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8UG-hZ-rMw"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgZoomViewer" destination="SQX-Gp-xP3" id="ddM-Ma-Gst"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FkJ-WS-gku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545.801526717557" y="3.5211267605633805"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2MZ-cM-6W7">
             <objects>

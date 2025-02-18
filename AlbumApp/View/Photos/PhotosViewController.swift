@@ -22,9 +22,6 @@ class PhotosViewController: UIViewController {
         photosCollectionView.dataSource = self
         bindPhotos()
         viewModel.GetPhotosData(albumId: albumId)
-        
-       
-        
     }
     func navTitle(){
         self.title = "Destination Page"
