@@ -11,7 +11,7 @@ class PhotosViewController: UIViewController {
 
     @IBOutlet weak var photosSearchBar: UISearchBar!
     
-    
+    var albumId:Int = 1
     @IBOutlet weak var photosCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()

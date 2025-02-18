@@ -18,20 +18,33 @@ class ViewController: UIViewController {
     let viewModel = ViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        albumsTableView.delegate = self
+        albumsTableView.dataSource = self
         bindUser()
         bindAlbums()
+        viewModel.GetUserData()
+        viewModel.GetAlbumData()
         
     }
     func bindUser(){
-        viewModel.bindUserToViewController = { () in
-            
+        viewModel.bindUserToViewController = { [weak self] in
+            DispatchQueue.main.async {
+                self?.nameLabel.text = self?.viewModel.userFinalResult?.name
+                self?.emailLabel.text = self?.viewModel.userFinalResult?.email
+                self?.albumsTableView.reloadData()
+            }
         }
     }
     func bindAlbums(){
         viewModel.bindAlbumsToViewController = { () in
-            
+            DispatchQueue.main.async { [weak self] in
+                self?.albumsTableView.reloadData()
+            }
         }
     }
 
 }
+
+
+
 
